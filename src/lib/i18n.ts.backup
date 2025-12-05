@@ -1,0 +1,1819 @@
+import i18n from 'i18next';
+import { initReactI18next } from 'react-i18next';
+
+// Translation resources
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const resources: any = {
+  'zh-CN': {
+    translation: {
+      // Navigation
+      nav: {
+        player: '播放器',
+        downloader: '下载器',
+        converter: '转换器',
+        playlistManager: '播放列表管理器',
+        faq: '常见问题',
+        blog: '博客'
+      },
+      // Hero section
+      hero: {
+        badge: '新功能',
+        badgeText: '字幕和播放列表支持',
+        title: '专业在线',
+        titleHighlight: 'M3U8/HLS',
+        titleSuffix: '播放器',
+        subtitle: '免费在线 M3U8 流媒体播放器。支持直播和点播内容。',
+        subtitleSecond: '无需下载,即时播放。',
+        inputPlaceholder: '粘贴 M3U8 URL 开始播放',
+        inputHelper: '支持 HLS 直播流和点播视频',
+        playButton: '播放'
+      },
+      // Features
+      features: {
+        free: {
+          title: '免费使用',
+          description: '完全免费,无需注册'
+        },
+        instant: {
+          title: '即时播放',
+          description: '无需下载,直接在浏览器播放'
+        },
+        compatible: {
+          title: '广泛兼容',
+          description: '支持各种 M3U8/HLS 流媒体格式'
+        }
+      },
+      // Professional Tools
+      tools: {
+        title: '专业工具',
+        subtitle: '用于快速下载和转换的强大 M3U8/HLS 工具',
+        downloader: {
+          badge: '热门',
+          title: 'M3U8 下载器',
+          description: '支持多线程下载、断点续传和重试。本地合并以保护隐私。',
+          action: '立即开始'
+        },
+        converter: {
+          badge: '推荐',
+          title: 'M3U8 转 MP4',
+          description: '由 FFmpeg.wasm 驱动。在浏览器中转换为 MP4/WEBM/MKV。',
+          action: '立即转换'
+        }
+      },
+      // What is M3U8
+      whatIs: {
+        title: '什么是 M3U8',
+        description: 'M3U8 是一种基于 HTTP 的流媒体协议,广泛用于直播流和点播传输。',
+        features: {
+          hls: {
+            title: 'HLS 协议支持',
+            description: '全面支持 HTTP 直播流协议,兼容各种流媒体源。'
+          },
+          crossPlatform: {
+            title: '跨平台兼容',
+            description: '适用于所有现代浏览器,无需安装任何插件或软件。'
+          },
+          performance: {
+            title: '高性能播放',
+            description: '自适应比特率流媒体,智能缓冲,提供流畅的播放体验。'
+          }
+        }
+      },
+      // Why Choose
+      whyChoose: {
+        sectionTitle: '优势',
+        title: '为什么选择 M3U8 播放器',
+        subtitle: '专业、免费且易于使用的在线 M3U8 播放解决方案。',
+        benefits: {
+          zeroCost: {
+            title: '零成本',
+            description: '完全免费,无需注册。没有隐藏费用或使用限制。'
+          },
+          powerful: {
+            title: '强大功能',
+            description: '包含播放、下载、转换等专业级功能。'
+          },
+          secure: {
+            title: '安全可靠',
+            description: '无用户数据存储。所有播放都在本地进行,保护您的隐私。'
+          }
+        }
+      },
+      // How to Use
+      howToUse: {
+        title: '如何使用 M3U8 播放器',
+        subtitle: '简单步骤开始播放您的 M3U8 视频流:',
+        steps: {
+          getLink: {
+            title: '获取 M3U8 链接',
+            description: '从视频网站或流媒体源获取 M3U8 格式链接。'
+          },
+          pasteLink: {
+            title: '粘贴链接',
+            description: '将 M3U8 链接粘贴到播放器的输入框中。'
+          },
+          startPlaying: {
+            title: '开始播放',
+            description: '点击播放按钮开始观看视频或直播内容。'
+          },
+          advancedSettings: {
+            title: '高级设置',
+            description: '调整播放速度、切换画质、启用字幕等。'
+          }
+        }
+      },
+      // Core Features
+      coreFeatures: {
+        title: 'M3U8 播放器核心功能',
+        subtitle: '您期望从专业播放器获得的所有基本功能。',
+        list: {
+          m3u8Support: {
+            title: 'M3U8/HLS 支持',
+            description: '全面支持 M3U8 和 HLS 协议,兼容各种流媒体源。'
+          },
+          adaptiveBitrate: {
+            title: '自适应比特率',
+            description: '根据网络状况自动切换视频质量,实现流畅播放。'
+          },
+          playbackControls: {
+            title: '播放控制',
+            description: '完整的控制功能,包括播放/暂停、进度控制、音量、全屏。'
+          },
+          subtitleSupport: {
+            title: '字幕支持',
+            description: '支持 WebVTT 字幕格式,可自定义样式和位置。'
+          },
+          playlists: {
+            title: '播放列表',
+            description: '创建和管理播放列表,连续播放多个视频。'
+          },
+          keyboardShortcuts: {
+            title: '键盘快捷键',
+            description: '支持键盘快捷键,增强用户体验。'
+          }
+        }
+      },
+      // Statistics
+      statistics: {
+        sectionTitle: '统计',
+        title: '用户喜爱 M3U8 播放器',
+        subtitle: '因为它简单、免费且强大。',
+        dailyActive: {
+          label: '日活跃',
+          value: '10K+',
+          suffix: '用户'
+        },
+        support: {
+          label: '支持',
+          value: '50+',
+          suffix: '视频格式'
+        },
+        loadTime: {
+          label: '加载时间',
+          value: '<2',
+          suffix: '秒'
+        }
+      },
+      // User Reviews
+      reviews: {
+        sectionTitle: '用户评价',
+        title: '用户如何评价 M3U8 播放器',
+        subtitle: '来自世界各地用户的真实评价和体验。',
+        list: {
+          user1: {
+            name: 'Michael Chen',
+            role: '视频内容创作者',
+            content: 'M3U8 播放器是我用过的最好的在线播放器。界面简洁,功能强大,完美满足我的直播测试需求。'
+          },
+          user2: {
+            name: 'Sarah Johnson',
+            role: '前端开发者',
+            content: '作为开发者,我经常需要测试各种 M3U8 流。这个播放器为我节省了大量时间 - 不再需要安装不同的软件。'
+          },
+          user3: {
+            name: 'David Rodriguez',
+            role: '网络工程师',
+            content: '调试 HLS 流媒体的必备工具。支持多种格式,错误消息清晰,帮助我快速识别问题。'
+          },
+          user4: {
+            name: 'Emma Wilson',
+            role: '教育专业人士',
+            content: '在线教学的完美工具。学生可以直接在浏览器中观看课程视频,无需下载任何软件。'
+          },
+          user5: {
+            name: 'Alex Thompson',
+            role: '产品经理',
+            content: '界面设计简洁优雅,用户体验出色。我们整个团队都使用这个工具预览和测试视频流。'
+          },
+          user6: {
+            name: 'James Kim',
+            role: '直播运营',
+            content: '监控多个直播流的理想选择。播放稳定,切换方便 - 我们日常运营的必备工具。'
+          }
+        }
+      },
+      // FAQ
+      faq: {
+        badge: '常见问题',
+        title: '常见问题解答',
+        subtitle: '找不到答案?查看我们的帮助中心或联系支持团队。',
+        questions: {
+          whatIsM3U8: {
+            question: '什么是 M3U8 格式?',
+            answer: 'M3U8 是一种基于 HTTP 的流媒体协议和 HLS(HTTP 直播流)的播放列表文件格式。它广泛用于视频直播和点播服务,支持自适应比特率流。'
+          },
+          supportedFormats: {
+            question: '播放器支持哪些格式?',
+            answer: '除了 M3U8/HLS 格式外,播放器还支持常见的视频格式,如 MP4、WebM、OGG。对于 M3U8 格式,它支持各种变体,包括主播放列表和媒体播放列表。'
+          },
+          whyNotPlay: {
+            question: '为什么我的视频无法播放?',
+            answer: '常见原因包括:1) URL 无效或过期;2) CORS 限制;3) 不支持的视频格式;4) 网络连接问题。检查浏览器控制台的错误消息,或尝试使用其他 M3U8 链接测试。'
+          },
+          needSoftware: {
+            question: '需要安装任何软件吗?',
+            answer: '不需要!M3U8 播放器完全在浏览器中运行,无需下载或安装。您只需要一个现代浏览器(Chrome、Firefox、Safari、Edge 等)。'
+          },
+          isFree: {
+            question: '播放器免费使用吗?',
+            answer: '是的,M3U8 播放器完全免费使用,没有隐藏费用、使用限制或功能限制。我们通过非侵入式广告维护服务。'
+          },
+          howToEmbed: {
+            question: '如何在我的网站上嵌入播放器?',
+            answer: '我们提供嵌入代码和 API,允许您轻松将 M3U8 播放器集成到您自己的网站中。查看我们的开发者文档以获取详细的集成指南和自定义选项。'
+          }
+        }
+      },
+      // CTA
+      cta: {
+        title: '立即开始播放您的 M3U8 视频',
+        subtitle: '免费、快速、专业的在线播放体验。',
+        button: '开始播放'
+      },
+      // Downloader Page
+      downloader: {
+        pageTitle: 'M3U8 下载器',
+        pageSubtitle: '快速、安全地下载 M3U8/HLS 视频流',
+        badge: '专业工具',
+        description: '强大的 M3U8 视频下载工具,支持多线程下载、断点续传和自动重试。所有处理均在本地进行,保护您的隐私。',
+        features: {
+          multiThread: {
+            title: '多线程下载',
+            description: '支持多线程并发下载,大幅提升下载速度。'
+          },
+          resume: {
+            title: '断点续传',
+            description: '支持暂停和恢复下载,不必担心网络中断。'
+          },
+          autoRetry: {
+            title: '自动重试',
+            description: '下载失败时自动重试,确保下载成功。'
+          },
+          localMerge: {
+            title: '本地合并',
+            description: '在浏览器中本地合并视频片段,保护隐私安全。'
+          },
+          formatSupport: {
+            title: '格式支持',
+            description: '支持下载为 MP4、TS 等多种视频格式。'
+          },
+          batch: {
+            title: '批量下载',
+            description: '支持添加多个下载任务,批量下载视频。'
+          }
+        },
+        inputPlaceholder: '粘贴 M3U8 URL',
+        buttonText: '开始下载',
+        howToUse: {
+          title: '如何使用',
+          step1: '复制 M3U8 视频链接',
+          step2: '粘贴到输入框中',
+          step3: '点击开始下载按钮',
+          step4: '等待下载完成'
+        }
+      },
+      // Converter Page
+      converter: {
+        pageTitle: 'M3U8 转换器',
+        pageSubtitle: '将 M3U8/HLS 视频转换为 MP4 等常用格式',
+        badge: '在线转换',
+        description: '基于 FFmpeg.wasm 的强大视频转换工具,完全在浏览器中运行。支持转换为 MP4、WEBM、MKV 等格式,无需上传文件,保护隐私。',
+        features: {
+          browserBased: {
+            title: '浏览器内转换',
+            description: '基于 WebAssembly 技术,无需安装软件,直接在浏览器中转换。'
+          },
+          multiFormat: {
+            title: '多格式支持',
+            description: '支持转换为 MP4、WEBM、MKV、AVI 等多种视频格式。'
+          },
+          noUpload: {
+            title: '无需上传',
+            description: '所有处理均在本地完成,不会上传您的视频文件。'
+          },
+          quality: {
+            title: '质量保证',
+            description: '保持原视频质量,支持自定义输出参数。'
+          },
+          fast: {
+            title: '快速转换',
+            description: '利用 FFmpeg 强大的转换能力,快速完成格式转换。'
+          },
+          free: {
+            title: '完全免费',
+            description: '无限制使用,无水印,无文件大小限制。'
+          }
+        },
+        inputPlaceholder: '粘贴 M3U8 URL 或选择本地文件',
+        buttonText: '开始转换',
+        selectFormat: '选择输出格式',
+        convertingText: '正在转换中...'
+      },
+      // Playlist Manager Page
+      playlistManager: {
+        pageTitle: '播放列表管理器',
+        pageSubtitle: '创建和管理您的 M3U8 视频播放列表',
+        badge: '播放列表',
+        description: '强大的播放列表管理工具,支持创建、编辑、导入和导出 M3U8 播放列表。轻松组织您的视频内容,支持拖拽排序。',
+        features: {
+          create: {
+            title: '创建播放列表',
+            description: '轻松创建自定义播放列表,添加多个视频源。'
+          },
+          edit: {
+            title: '编辑管理',
+            description: '支持编辑、删除、重命名播放列表项目。'
+          },
+          dragDrop: {
+            title: '拖拽排序',
+            description: '通过拖拽快速调整播放列表中视频的顺序。'
+          },
+          import: {
+            title: '导入导出',
+            description: '支持导入和导出 M3U8 格式的播放列表文件。'
+          },
+          preview: {
+            title: '预览播放',
+            description: '在管理器中直接预览和播放列表中的视频。'
+          },
+          share: {
+            title: '分享列表',
+            description: '生成分享链接,与他人共享您的播放列表。'
+          }
+        },
+        buttonText: '创建新列表',
+        addVideo: '添加视频',
+        importList: '导入列表',
+        exportList: '导出列表'
+      },
+      // Blog Page
+      blog: {
+        pageTitle: 'M3U8 播放器博客',
+        pageSubtitle: '了解 M3U8 技术、教程和最佳实践',
+        badge: '最新文章',
+        description: '探索 M3U8/HLS 流媒体技术的深度文章、使用教程和行业见解。',
+        categories: {
+          all: '全部文章',
+          tutorials: '教程指南',
+          news: '新闻动态',
+          technical: '技术文章',
+          tips: '使用技巧'
+        },
+        featured: {
+          title: '精选文章',
+          readMore: '阅读更多',
+          minutes: '分钟阅读'
+        },
+        recent: {
+          title: '最新文章',
+          viewAll: '查看全部'
+        },
+        article: {
+          publishedOn: '发布于',
+          author: '作者',
+          category: '分类',
+          tags: '标签',
+          share: '分享文章',
+          relatedArticles: '相关文章'
+        }
+      },
+      // Privacy Policy Page
+      privacyPolicy: {
+        pageTitle: '隐私政策',
+        pageSubtitle: '我们如何收集、使用和保护您的信息',
+        lastUpdated: '最后更新',
+        sections: {
+          introduction: {
+            title: '简介',
+            content: '本隐私政策说明我们如何收集、使用、披露和保护您在使用 M3U8 播放器服务时的信息。我们重视您的隐私,并致力于保护您的个人数据。'
+          },
+          informationCollection: {
+            title: '信息收集',
+            content: '我们收集的信息类型包括:',
+            items: {
+              usage: '使用数据:访问时间、浏览器类型、操作系统等',
+              technical: '技术信息:IP 地址、设备信息、Cookie 数据',
+              video: '视频链接:您输入的 M3U8 URL(仅在本地处理,不上传到服务器)'
+            }
+          },
+          howWeUse: {
+            title: '信息使用',
+            content: '我们使用收集的信息用于:',
+            items: {
+              service: '提供和改进我们的服务',
+              analytics: '分析使用情况和性能',
+              security: '维护安全性和防止滥用',
+              communication: '发送服务更新和通知'
+            }
+          },
+          dataProtection: {
+            title: '数据保护',
+            content: '我们采取以下措施保护您的数据:',
+            items: {
+              local: '视频处理完全在浏览器本地进行',
+              noStorage: '我们不存储您的视频内容或 M3U8 链接',
+              encryption: '使用 HTTPS 加密传输数据',
+              minimal: '最小化数据收集原则'
+            }
+          },
+          cookies: {
+            title: 'Cookies 和追踪技术',
+            content: '我们使用 Cookies 和类似技术来改善用户体验。您可以在浏览器设置中管理 Cookie 偏好。'
+          },
+          thirdParty: {
+            title: '第三方服务',
+            content: '我们可能使用第三方服务(如分析工具),这些服务有自己的隐私政策。'
+          },
+          yourRights: {
+            title: '您的权利',
+            content: '您有权访问、更正或删除您的个人信息。如有隐私相关问题,请联系我们。'
+          },
+          changes: {
+            title: '政策变更',
+            content: '我们可能会不时更新本隐私政策。重大变更将在网站上公布。'
+          },
+          contact: {
+            title: '联系我们',
+            content: '如有任何隐私问题或疑虑,请通过以下方式联系我们:'
+          }
+        }
+      },
+      // Terms of Service Page
+      termsOfService: {
+        pageTitle: '服务条款',
+        pageSubtitle: '使用 M3U8 播放器的条款和条件',
+        lastUpdated: '最后更新',
+        sections: {
+          acceptance: {
+            title: '条款接受',
+            content: '使用 M3U8 播放器服务即表示您同意遵守这些服务条款。如果您不同意这些条款,请不要使用本服务。'
+          },
+          serviceDescription: {
+            title: '服务描述',
+            content: 'M3U8 播放器提供在线视频播放、下载和转换服务。所有功能均在浏览器中本地运行。'
+          },
+          userResponsibilities: {
+            title: '用户责任',
+            content: '作为用户,您同意:',
+            items: {
+              legal: '仅以合法目的使用本服务',
+              content: '确保您有权访问和使用您输入的视频内容',
+              noAbuse: '不滥用或干扰服务的正常运行',
+              comply: '遵守所有适用的法律法规'
+            }
+          },
+          prohibitedUse: {
+            title: '禁止使用',
+            content: '以下行为被严格禁止:',
+            items: {
+              illegal: '使用服务访问或下载非法内容',
+              copyright: '侵犯他人版权或知识产权',
+              malicious: '上传恶意代码或病毒',
+              automation: '使用自动化工具过度访问服务'
+            }
+          },
+          intellectualProperty: {
+            title: '知识产权',
+            content: '本服务的所有内容、功能和设计均为我们或我们许可方的财产,受版权和其他知识产权法保护。'
+          },
+          disclaimer: {
+            title: '免责声明',
+            content: '本服务按"原样"提供,不提供任何明示或暗示的保证。我们不对服务的可用性、准确性或可靠性做出保证。'
+          },
+          limitation: {
+            title: '责任限制',
+            content: '在法律允许的最大范围内,我们不对任何间接、偶然、特殊或后果性损害承担责任。'
+          },
+          termination: {
+            title: '服务终止',
+            content: '我们保留随时暂停或终止您访问服务的权利,特别是在您违反这些条款的情况下。'
+          },
+          changes: {
+            title: '条款变更',
+            content: '我们保留随时修改这些服务条款的权利。继续使用服务即表示接受修改后的条款。'
+          },
+          governingLaw: {
+            title: '适用法律',
+            content: '这些条款受相关司法管辖区的法律管辖和解释。'
+          },
+          contact: {
+            title: '联系方式',
+            content: '如对这些服务条款有任何疑问,请联系我们。'
+          }
+        }
+      },
+      // Footer
+      footer: {
+        description: '支持直播流和点播内容的专业在线 M3U8/HLS 播放器。免费使用,无需注册。',
+        about: '关于',
+        resources: '资源',
+        recommendedTools: '推荐工具',
+        copyright: '版权所有',
+        privacyPolicy: '隐私政策',
+        termsOfService: '服务条款'
+      }
+    }
+  },
+  en: {
+    translation: {
+      // Navigation
+      nav: {
+        player: 'Player',
+        downloader: 'Downloader',
+        converter: 'Converter',
+        playlistManager: 'Playlist Manager',
+        faq: 'FAQ',
+        blog: 'Blog'
+      },
+      // Hero section
+      hero: {
+        badge: 'New Feature',
+        badgeText: 'Subtitle and Playlist Support',
+        title: 'Professional Online',
+        titleHighlight: 'M3U8/HLS',
+        titleSuffix: 'Player',
+        subtitle: 'Free online M3U8 stream player. Support live and VOD content.',
+        subtitleSecond: 'No download required, instant playback.',
+        inputPlaceholder: 'Paste M3U8 URL here...',
+        inputHelper: 'Supports HLS live streams and video on demand',
+        playButton: 'Play'
+      },
+      // Features
+      features: {
+        free: {
+          title: 'Free to Use',
+          description: 'Completely free, no registration required'
+        },
+        instant: {
+          title: 'Instant Playback',
+          description: 'No download needed, play directly in browser'
+        },
+        compatible: {
+          title: 'Wide Compatibility',
+          description: 'Supports various M3U8/HLS streaming formats'
+        }
+      },
+      // Professional Tools
+      tools: {
+        title: 'Professional Tools',
+        subtitle: 'Powerful M3U8/HLS tools for fast downloading and conversion',
+        downloader: {
+          badge: 'Popular',
+          title: 'M3U8 Downloader',
+          description: 'Multi-threaded downloads with resume and retries. Local merge for privacy.',
+          action: 'Start Now'
+        },
+        converter: {
+          badge: 'Recommended',
+          title: 'M3U8 to MP4',
+          description: 'Powered by FFmpeg.wasm. Convert to MP4/WEBM/MKV in the browser.',
+          action: 'Convert Now'
+        }
+      },
+      // What is M3U8
+      whatIs: {
+        title: 'What is M3U8',
+        description: 'M3U8 is an HTTP-based streaming protocol widely used for live streaming and video-on-demand transmission.',
+        features: {
+          hls: {
+            title: 'HLS Protocol Support',
+            description: 'Full support for HTTP Live Streaming protocol, compatible with various streaming sources.'
+          },
+          crossPlatform: {
+            title: 'Cross-Platform Compatible',
+            description: 'Works on all modern browsers without installing any plugins or software.'
+          },
+          performance: {
+            title: 'High-Performance Playback',
+            description: 'Adaptive bitrate streaming with intelligent buffering for smooth playback experience.'
+          }
+        }
+      },
+      // Why Choose
+      whyChoose: {
+        sectionTitle: 'Benefits',
+        title: 'Why Choose M3U8 Player',
+        subtitle: 'Professional, free, and easy-to-use online M3U8 playback solution.',
+        benefits: {
+          zeroCost: {
+            title: 'Zero Cost',
+            description: 'Completely free with no registration required. No hidden fees or usage limitations.'
+          },
+          powerful: {
+            title: 'Powerful Features',
+            description: 'Professional-grade features including playback, download, and conversion.'
+          },
+          secure: {
+            title: 'Secure & Reliable',
+            description: 'No user data storage. All playback happens locally, protecting your privacy.'
+          }
+        }
+      },
+      // How to Use
+      howToUse: {
+        title: 'How to Use M3U8 Player',
+        subtitle: 'Simple steps to start playing your M3U8 video streams:',
+        steps: {
+          getLink: {
+            title: 'Get M3U8 Link',
+            description: 'Obtain M3U8 format link from video websites or streaming sources.'
+          },
+          pasteLink: {
+            title: 'Paste Link',
+            description: "Paste the M3U8 link into the player's input field."
+          },
+          startPlaying: {
+            title: 'Start Playing',
+            description: 'Click the play button to start watching video or live content.'
+          },
+          advancedSettings: {
+            title: 'Advanced Settings',
+            description: 'Adjust playback speed, switch quality, enable subtitles, and more.'
+          }
+        }
+      },
+      // Core Features
+      coreFeatures: {
+        title: 'M3U8 Player Core Features',
+        subtitle: "All essential features you'd expect from a professional player.",
+        list: {
+          m3u8Support: {
+            title: 'M3U8/HLS Support',
+            description: 'Full support for M3U8 and HLS protocols, compatible with various streaming sources.'
+          },
+          adaptiveBitrate: {
+            title: 'Adaptive Bitrate',
+            description: 'Automatically switches video quality based on network conditions for smooth playback.'
+          },
+          playbackControls: {
+            title: 'Playback Controls',
+            description: 'Complete control functions including play/pause, progress control, volume, fullscreen.'
+          },
+          subtitleSupport: {
+            title: 'Subtitle Support',
+            description: 'Supports WebVTT subtitle format with customizable styles and positioning.'
+          },
+          playlists: {
+            title: 'Playlists',
+            description: 'Create and manage playlists for continuous playback of multiple videos.'
+          },
+          keyboardShortcuts: {
+            title: 'Keyboard Shortcuts',
+            description: 'Keyboard shortcut support for enhanced user experience.'
+          }
+        }
+      },
+      // Statistics
+      statistics: {
+        sectionTitle: 'Statistics',
+        title: 'Users Love M3U8 Player',
+        subtitle: "Because it's simple, free, and powerful.",
+        dailyActive: {
+          label: 'Daily Active',
+          value: '10K+',
+          suffix: 'Users'
+        },
+        support: {
+          label: 'Support',
+          value: '50+',
+          suffix: 'Video Formats'
+        },
+        loadTime: {
+          label: 'Load Time',
+          value: '<2',
+          suffix: 'Seconds'
+        }
+      },
+      // User Reviews
+      reviews: {
+        sectionTitle: 'User Reviews',
+        title: 'What Users Say About M3U8 Player',
+        subtitle: 'Real reviews and experiences from users around the world.',
+        list: {
+          user1: {
+            name: 'Michael Chen',
+            role: 'Video Content Creator',
+            content: "M3U8 Player is the best online player I've ever used. Clean interface, powerful features, perfectly meets my live streaming test needs."
+          },
+          user2: {
+            name: 'Sarah Johnson',
+            role: 'Frontend Developer',
+            content: 'As a developer, I frequently need to test various M3U8 streams. This player saves me tons of time - no more installing different software.'
+          },
+          user3: {
+            name: 'David Rodriguez',
+            role: 'Network Engineer',
+            content: 'Essential tool for debugging HLS streaming. Supports multiple formats with clear error messages, helps me quickly identify issues.'
+          },
+          user4: {
+            name: 'Emma Wilson',
+            role: 'Education Professional',
+            content: 'Perfect tool for online teaching. Students can watch course videos directly in the browser without downloading any software.'
+          },
+          user5: {
+            name: 'Alex Thompson',
+            role: 'Product Manager',
+            content: 'Clean and elegant interface design with excellent user experience. Our entire team uses this tool for previewing and testing video streams.'
+          },
+          user6: {
+            name: 'James Kim',
+            role: 'Live Stream Operations',
+            content: 'Ideal choice for monitoring multiple live streams. Stable playback with easy switching - an essential tool for our daily operations.'
+          }
+        }
+      },
+      // FAQ
+      faq: {
+        badge: 'FAQ',
+        title: 'Frequently Asked Questions',
+        subtitle: "Can't find the answer? Check our help center or contact support team.",
+        questions: {
+          whatIsM3U8: {
+            question: 'What is M3U8 format?',
+            answer: "M3U8 is an HTTP-based streaming protocol and playlist file format for HLS (HTTP Live Streaming). It's widely used for video live streaming and on-demand services, supporting adaptive bitrate streaming."
+          },
+          supportedFormats: {
+            question: 'What formats does the player support?',
+            answer: 'Besides M3U8/HLS format, the player also supports common video formats like MP4, WebM, OGG. For M3U8 format, it supports various variants including master playlists and media playlists.'
+          },
+          whyNotPlay: {
+            question: "Why won't my video play?",
+            answer: 'Common reasons include: 1) Invalid or expired URL; 2) CORS restrictions; 3) Unsupported video format; 4) Network connection issues. Check browser console for error messages or try testing with other M3U8 links.'
+          },
+          needSoftware: {
+            question: 'Do I need to install any software?',
+            answer: 'No! M3U8 Player runs entirely in the browser with no downloads or installations required. You just need a modern browser (Chrome, Firefox, Safari, Edge, etc.).'
+          },
+          isFree: {
+            question: 'Is the player free to use?',
+            answer: 'Yes, M3U8 Player is completely free to use with no hidden fees, usage limits, or feature restrictions. We maintain the service through non-intrusive advertising.'
+          },
+          howToEmbed: {
+            question: 'How can I embed the player on my website?',
+            answer: 'We provide embed code and APIs that allow you to easily integrate the M3U8 player into your own website. Check our developer documentation for detailed integration guides and customization options.'
+          }
+        }
+      },
+      // CTA
+      cta: {
+        title: 'Start Playing Your M3U8 Videos Now',
+        subtitle: 'Free, fast, and professional online playback experience.',
+        button: 'Start Playing'
+      },
+      // Downloader Page
+      downloader: {
+        pageTitle: 'M3U8 Downloader',
+        pageSubtitle: 'Download M3U8/HLS video streams quickly and securely',
+        badge: 'Professional Tool',
+        description: 'Powerful M3U8 video download tool with multi-threaded downloads, resume support, and automatic retries. All processing is done locally to protect your privacy.',
+        features: {
+          multiThread: {
+            title: 'Multi-threaded Download',
+            description: 'Support concurrent multi-threaded downloads for significantly faster speeds.'
+          },
+          resume: {
+            title: 'Resume Support',
+            description: 'Pause and resume downloads without worrying about network interruptions.'
+          },
+          autoRetry: {
+            title: 'Auto Retry',
+            description: 'Automatically retry failed downloads to ensure completion.'
+          },
+          localMerge: {
+            title: 'Local Merge',
+            description: 'Merge video segments locally in browser for privacy protection.'
+          },
+          formatSupport: {
+            title: 'Format Support',
+            description: 'Download to various video formats including MP4, TS, and more.'
+          },
+          batch: {
+            title: 'Batch Download',
+            description: 'Add multiple download tasks and download videos in batch.'
+          }
+        },
+        inputPlaceholder: 'Paste M3U8 URL',
+        buttonText: 'Start Download',
+        howToUse: {
+          title: 'How to Use',
+          step1: 'Copy M3U8 video link',
+          step2: 'Paste into input field',
+          step3: 'Click start download button',
+          step4: 'Wait for download to complete'
+        }
+      },
+      // Converter Page
+      converter: {
+        pageTitle: 'M3U8 Converter',
+        pageSubtitle: 'Convert M3U8/HLS videos to MP4 and other popular formats',
+        badge: 'Online Converter',
+        description: 'Powerful video conversion tool powered by FFmpeg.wasm, running entirely in your browser. Convert to MP4, WEBM, MKV and more without uploading files.',
+        features: {
+          browserBased: {
+            title: 'Browser-based Conversion',
+            description: 'Powered by WebAssembly technology, no software installation needed, convert directly in browser.'
+          },
+          multiFormat: {
+            title: 'Multi-format Support',
+            description: 'Convert to various video formats including MP4, WEBM, MKV, AVI, and more.'
+          },
+          noUpload: {
+            title: 'No Upload Required',
+            description: 'All processing is done locally, your video files are never uploaded.'
+          },
+          quality: {
+            title: 'Quality Guaranteed',
+            description: 'Maintain original video quality with customizable output parameters.'
+          },
+          fast: {
+            title: 'Fast Conversion',
+            description: 'Leverage FFmpeg\'s powerful conversion capabilities for quick format conversion.'
+          },
+          free: {
+            title: 'Completely Free',
+            description: 'Unlimited use, no watermarks, no file size restrictions.'
+          }
+        },
+        inputPlaceholder: 'Paste M3U8 URL or select local file',
+        buttonText: 'Start Conversion',
+        selectFormat: 'Select output format',
+        convertingText: 'Converting...'
+      },
+      // Playlist Manager Page
+      playlistManager: {
+        pageTitle: 'Playlist Manager',
+        pageSubtitle: 'Create and manage your M3U8 video playlists',
+        badge: 'Playlist',
+        description: 'Powerful playlist management tool supporting creation, editing, import, and export of M3U8 playlists. Easily organize your video content with drag-and-drop sorting.',
+        features: {
+          create: {
+            title: 'Create Playlists',
+            description: 'Easily create custom playlists and add multiple video sources.'
+          },
+          edit: {
+            title: 'Edit & Manage',
+            description: 'Support editing, deleting, and renaming playlist items.'
+          },
+          dragDrop: {
+            title: 'Drag & Drop Sorting',
+            description: 'Quickly adjust video order in playlists through drag and drop.'
+          },
+          import: {
+            title: 'Import & Export',
+            description: 'Support importing and exporting M3U8 format playlist files.'
+          },
+          preview: {
+            title: 'Preview & Play',
+            description: 'Preview and play videos from the list directly in the manager.'
+          },
+          share: {
+            title: 'Share Lists',
+            description: 'Generate share links to share your playlists with others.'
+          }
+        },
+        buttonText: 'Create New List',
+        addVideo: 'Add Video',
+        importList: 'Import List',
+        exportList: 'Export List'
+      },
+      // Blog Page
+      blog: {
+        pageTitle: 'M3U8 Player Blog',
+        pageSubtitle: 'Learn about M3U8 technology, tutorials, and best practices',
+        badge: 'Latest Articles',
+        description: 'Explore in-depth articles, tutorials, and industry insights on M3U8/HLS streaming technology.',
+        categories: {
+          all: 'All Articles',
+          tutorials: 'Tutorials',
+          news: 'News',
+          technical: 'Technical',
+          tips: 'Tips & Tricks'
+        },
+        featured: {
+          title: 'Featured Articles',
+          readMore: 'Read More',
+          minutes: 'min read'
+        },
+        recent: {
+          title: 'Recent Articles',
+          viewAll: 'View All'
+        },
+        article: {
+          publishedOn: 'Published on',
+          author: 'Author',
+          category: 'Category',
+          tags: 'Tags',
+          share: 'Share Article',
+          relatedArticles: 'Related Articles'
+        }
+      },
+      // Privacy Policy Page
+      privacyPolicy: {
+        pageTitle: 'Privacy Policy',
+        pageSubtitle: 'How we collect, use, and protect your information',
+        lastUpdated: 'Last Updated',
+        sections: {
+          introduction: {
+            title: 'Introduction',
+            content: 'This Privacy Policy explains how we collect, use, disclose, and protect your information when using M3U8 Player services. We value your privacy and are committed to protecting your personal data.'
+          },
+          informationCollection: {
+            title: 'Information Collection',
+            content: 'Types of information we collect include:',
+            items: {
+              usage: 'Usage data: access times, browser type, operating system, etc.',
+              technical: 'Technical information: IP address, device information, cookie data',
+              video: 'Video links: M3U8 URLs you enter (processed locally only, not uploaded to servers)'
+            }
+          },
+          howWeUse: {
+            title: 'How We Use Information',
+            content: 'We use collected information to:',
+            items: {
+              service: 'Provide and improve our services',
+              analytics: 'Analyze usage and performance',
+              security: 'Maintain security and prevent abuse',
+              communication: 'Send service updates and notifications'
+            }
+          },
+          dataProtection: {
+            title: 'Data Protection',
+            content: 'We take the following measures to protect your data:',
+            items: {
+              local: 'Video processing is done entirely locally in your browser',
+              noStorage: 'We do not store your video content or M3U8 links',
+              encryption: 'Use HTTPS encryption for data transmission',
+              minimal: 'Principle of minimal data collection'
+            }
+          },
+          cookies: {
+            title: 'Cookies and Tracking Technologies',
+            content: 'We use cookies and similar technologies to improve user experience. You can manage cookie preferences in your browser settings.'
+          },
+          thirdParty: {
+            title: 'Third-Party Services',
+            content: 'We may use third-party services (such as analytics tools) that have their own privacy policies.'
+          },
+          yourRights: {
+            title: 'Your Rights',
+            content: 'You have the right to access, correct, or delete your personal information. Contact us with privacy-related questions.'
+          },
+          changes: {
+            title: 'Policy Changes',
+            content: 'We may update this Privacy Policy from time to time. Significant changes will be announced on the website.'
+          },
+          contact: {
+            title: 'Contact Us',
+            content: 'For any privacy questions or concerns, please contact us via:'
+          }
+        }
+      },
+      // Terms of Service Page
+      termsOfService: {
+        pageTitle: 'Terms of Service',
+        pageSubtitle: 'Terms and conditions for using M3U8 Player',
+        lastUpdated: 'Last Updated',
+        sections: {
+          acceptance: {
+            title: 'Acceptance of Terms',
+            content: 'By using M3U8 Player services, you agree to comply with these Terms of Service. If you do not agree with these terms, please do not use this service.'
+          },
+          serviceDescription: {
+            title: 'Service Description',
+            content: 'M3U8 Player provides online video playback, download, and conversion services. All functions run locally in your browser.'
+          },
+          userResponsibilities: {
+            title: 'User Responsibilities',
+            content: 'As a user, you agree to:',
+            items: {
+              legal: 'Use this service only for lawful purposes',
+              content: 'Ensure you have the right to access and use the video content you enter',
+              noAbuse: 'Not abuse or interfere with normal service operation',
+              comply: 'Comply with all applicable laws and regulations'
+            }
+          },
+          prohibitedUse: {
+            title: 'Prohibited Use',
+            content: 'The following activities are strictly prohibited:',
+            items: {
+              illegal: 'Using the service to access or download illegal content',
+              copyright: 'Infringing on others\' copyrights or intellectual property',
+              malicious: 'Uploading malicious code or viruses',
+              automation: 'Using automated tools to excessively access the service'
+            }
+          },
+          intellectualProperty: {
+            title: 'Intellectual Property',
+            content: 'All content, functionality, and design of this service are the property of us or our licensors and are protected by copyright and other intellectual property laws.'
+          },
+          disclaimer: {
+            title: 'Disclaimer',
+            content: 'This service is provided "as is" without any express or implied warranties. We make no guarantees about the availability, accuracy, or reliability of the service.'
+          },
+          limitation: {
+            title: 'Limitation of Liability',
+            content: 'To the maximum extent permitted by law, we are not liable for any indirect, incidental, special, or consequential damages.'
+          },
+          termination: {
+            title: 'Service Termination',
+            content: 'We reserve the right to suspend or terminate your access to the service at any time, especially if you violate these terms.'
+          },
+          changes: {
+            title: 'Changes to Terms',
+            content: 'We reserve the right to modify these Terms of Service at any time. Continued use of the service constitutes acceptance of the modified terms.'
+          },
+          governingLaw: {
+            title: 'Governing Law',
+            content: 'These terms are governed by and construed in accordance with the laws of the relevant jurisdiction.'
+          },
+          contact: {
+            title: 'Contact Information',
+            content: 'If you have any questions about these Terms of Service, please contact us.'
+          }
+        }
+      },
+      // Footer
+      footer: {
+        description: 'Professional online M3U8/HLS player supporting live streaming and on-demand content. Free to use, no registration required.',
+        about: 'About',
+        resources: 'Resources',
+        recommendedTools: 'Recommended Tools',
+        copyright: 'All rights reserved',
+        privacyPolicy: 'Privacy Policy',
+        termsOfService: 'Terms of Service'
+      }
+    }
+  }
+};
+
+// Add Traditional Chinese, Japanese, and German translations
+resources['zh-TW'] = {
+  translation: {
+    nav: {
+      player: '播放器',
+      downloader: '下載器',
+      converter: '轉換器',
+      playlistManager: '播放列表管理器',
+      faq: '常見問題',
+      blog: '部落格'
+    },
+    hero: {
+      badge: '新功能',
+      badgeText: '字幕和播放列表支援',
+      title: '專業線上',
+      titleHighlight: 'M3U8/HLS',
+      titleSuffix: '播放器',
+      subtitle: '免費線上 M3U8 串流媒體播放器。支援直播和隨選內容。',
+      subtitleSecond: '無需下載,即時播放。',
+      inputPlaceholder: '貼上 M3U8 URL 開始播放',
+      inputHelper: '支援 HLS 直播流和隨選影片',
+      playButton: '播放'
+    },
+    features: {
+      free: {
+        title: '免費使用',
+        description: '完全免費,無需註冊'
+      },
+      instant: {
+        title: '即時播放',
+        description: '無需下載,直接在瀏覽器播放'
+      },
+      compatible: {
+        title: '廣泛相容',
+        description: '支援各種 M3U8/HLS 串流媒體格式'
+      }
+    },
+    tools: {
+      title: '專業工具',
+      subtitle: '用於快速下載和轉換的強大 M3U8/HLS 工具',
+      downloader: {
+        badge: '熱門',
+        title: 'M3U8 下載器',
+        description: '支援多執行緒下載、斷點續傳和重試。本地合併以保護隱私。',
+        action: '立即開始'
+      },
+      converter: {
+        badge: '推薦',
+        title: 'M3U8 轉 MP4',
+        description: '由 FFmpeg.wasm 驅動。在瀏覽器中轉換為 MP4/WEBM/MKV。',
+        action: '立即轉換'
+      }
+    },
+    whatIs: {
+      title: '什麼是 M3U8',
+      description: 'M3U8 是一種基於 HTTP 的串流媒體協定,廣泛用於直播流和隨選傳輸。',
+      features: {
+        hls: {
+          title: 'HLS 協定支援',
+          description: '全面支援 HTTP 直播流協定,相容各種串流媒體源。'
+        },
+        crossPlatform: {
+          title: '跨平台相容',
+          description: '適用於所有現代瀏覽器,無需安裝任何外掛程式或軟體。'
+        },
+        performance: {
+          title: '高效能播放',
+          description: '自適應位元率串流媒體,智慧緩衝,提供流暢的播放體驗。'
+        }
+      }
+    },
+    whyChoose: {
+      sectionTitle: '優勢',
+      title: '為什麼選擇 M3U8 播放器',
+      subtitle: '專業、免費且易於使用的線上 M3U8 播放解決方案。',
+      benefits: {
+        zeroCost: {
+          title: '零成本',
+          description: '完全免費,無需註冊。沒有隱藏費用或使用限制。'
+        },
+        powerful: {
+          title: '強大功能',
+          description: '包含播放、下載、轉換等專業級功能。'
+        },
+        secure: {
+          title: '安全可靠',
+          description: '無用戶資料儲存。所有播放都在本地進行,保護您的隱私。'
+        }
+      }
+    },
+    howToUse: {
+      title: '如何使用 M3U8 播放器',
+      subtitle: '簡單步驟開始播放您的 M3U8 影片流:',
+      steps: {
+        getLink: {
+          title: '獲取 M3U8 連結',
+          description: '從影片網站或串流媒體源獲取 M3U8 格式連結。'
+        },
+        pasteLink: {
+          title: '貼上連結',
+          description: '將 M3U8 連結貼上到播放器的輸入框中。'
+        },
+        startPlaying: {
+          title: '開始播放',
+          description: '點擊播放按鈕開始觀看影片或直播內容。'
+        },
+        advancedSettings: {
+          title: '進階設定',
+          description: '調整播放速度、切換畫質、啟用字幕等。'
+        }
+      }
+    },
+    coreFeatures: {
+      title: 'M3U8 播放器核心功能',
+      subtitle: '您期望從專業播放器獲得的所有基本功能。',
+      list: {
+        m3u8Support: {
+          title: 'M3U8/HLS 支援',
+          description: '全面支援 M3U8 和 HLS 協定,相容各種串流媒體源。'
+        },
+        adaptiveBitrate: {
+          title: '自適應位元率',
+          description: '根據網路狀況自動切換影片品質,實現流暢播放。'
+        },
+        playbackControls: {
+          title: '播放控制',
+          description: '完整的控制功能,包括播放/暫停、進度控制、音量、全螢幕。'
+        },
+        subtitleSupport: {
+          title: '字幕支援',
+          description: '支援 WebVTT 字幕格式,可自訂樣式和位置。'
+        },
+        playlists: {
+          title: '播放列表',
+          description: '建立和管理播放列表,連續播放多個影片。'
+        },
+        keyboardShortcuts: {
+          title: '鍵盤快速鍵',
+          description: '支援鍵盤快速鍵,增強使用者體驗。'
+        }
+      }
+    },
+    statistics: {
+      sectionTitle: '統計',
+      title: '用戶喜愛 M3U8 播放器',
+      subtitle: '因為它簡單、免費且強大。',
+      dailyActive: {
+        label: '每日活躍',
+        value: '10K+',
+        suffix: '用戶'
+      },
+      support: {
+        label: '支援',
+        value: '50+',
+        suffix: '影片格式'
+      },
+      loadTime: {
+        label: '載入時間',
+        value: '<2',
+        suffix: '秒'
+      }
+    },
+    reviews: {
+      sectionTitle: '用戶評價',
+      title: '用戶如何評價 M3U8 播放器',
+      subtitle: '來自世界各地用戶的真實評價和體驗。',
+      list: {
+        user1: {
+          name: 'Michael Chen',
+          role: '影片內容創作者',
+          content: 'M3U8 播放器是我用過的最好的線上播放器。介面簡潔,功能強大,完美滿足我的直播測試需求。'
+        },
+        user2: {
+          name: 'Sarah Johnson',
+          role: '前端開發者',
+          content: '作為開發者,我經常需要測試各種 M3U8 流。這個播放器為我節省了大量時間 - 不再需要安裝不同的軟體。'
+        },
+        user3: {
+          name: 'David Rodriguez',
+          role: '網路工程師',
+          content: '除錯 HLS 串流媒體的必備工具。支援多種格式,錯誤訊息清晰,幫助我快速識別問題。'
+        },
+        user4: {
+          name: 'Emma Wilson',
+          role: '教育專業人士',
+          content: '線上教學的完美工具。學生可以直接在瀏覽器中觀看課程影片,無需下載任何軟體。'
+        },
+        user5: {
+          name: 'Alex Thompson',
+          role: '產品經理',
+          content: '介面設計簡潔優雅,使用者體驗出色。我們整個團隊都使用這個工具預覽和測試影片流。'
+        },
+        user6: {
+          name: 'James Kim',
+          role: '直播運營',
+          content: '監控多個直播流的理想選擇。播放穩定,切換方便 - 我們日常運營的必備工具。'
+        }
+      }
+    },
+    faq: {
+      badge: '常見問題',
+      title: '常見問題解答',
+      subtitle: '找不到答案?查看我們的幫助中心或聯絡支援團隊。',
+      questions: {
+        whatIsM3U8: {
+          question: '什麼是 M3U8 格式?',
+          answer: 'M3U8 是一種基於 HTTP 的串流媒體協定和 HLS(HTTP 直播流)的播放列表檔案格式。它廣泛用於影片直播和隨選服務,支援自適應位元率流。'
+        },
+        supportedFormats: {
+          question: '播放器支援哪些格式?',
+          answer: '除了 M3U8/HLS 格式外,播放器還支援常見的影片格式,如 MP4、WebM、OGG。對於 M3U8 格式,它支援各種變體,包括主播放列表和媒體播放列表。'
+        },
+        whyNotPlay: {
+          question: '為什麼我的影片無法播放?',
+          answer: '常見原因包括:1) URL 無效或過期;2) CORS 限制;3) 不支援的影片格式;4) 網路連線問題。檢查瀏覽器控制台的錯誤訊息,或嘗試使用其他 M3U8 連結測試。'
+        },
+        needSoftware: {
+          question: '需要安裝任何軟體嗎?',
+          answer: '不需要!M3U8 播放器完全在瀏覽器中執行,無需下載或安裝。您只需要一個現代瀏覽器(Chrome、Firefox、Safari、Edge 等)。'
+        },
+        isFree: {
+          question: '播放器免費使用嗎?',
+          answer: '是的,M3U8 播放器完全免費使用,沒有隱藏費用、使用限制或功能限制。我們透過非侵入式廣告維護服務。'
+        },
+        howToEmbed: {
+          question: '如何在我的網站上嵌入播放器?',
+          answer: '我們提供嵌入代碼和 API,允許您輕鬆將 M3U8 播放器整合到您自己的網站中。查看我們的開發者文件以取得詳細的整合指南和自訂選項。'
+        }
+      }
+    },
+    cta: {
+      title: '立即開始播放您的 M3U8 影片',
+      subtitle: '免費、快速、專業的線上播放體驗。',
+      button: '開始播放'
+    },
+    footer: {
+      description: '支援直播流和隨選內容的專業線上 M3U8/HLS 播放器。免費使用,無需註冊。',
+      about: '關於',
+      resources: '資源',
+      recommendedTools: '推薦工具',
+      copyright: '版權所有',
+      privacyPolicy: '隱私政策',
+      termsOfService: '服務條款'
+    }
+  }
+};
+
+resources.ja = {
+  translation: {
+    nav: {
+      player: 'プレーヤー',
+      downloader: 'ダウンローダー',
+      converter: 'コンバーター',
+      playlistManager: 'プレイリストマネージャー',
+      faq: 'よくある質問',
+      blog: 'ブログ'
+    },
+    hero: {
+      badge: '新機能',
+      badgeText: '字幕とプレイリストのサポート',
+      title: 'プロフェッショナルなオンライン',
+      titleHighlight: 'M3U8/HLS',
+      titleSuffix: 'プレーヤー',
+      subtitle: '無料のオンライン M3U8 ストリームプレーヤー。ライブと VOD コンテンツをサポート。',
+      subtitleSecond: 'ダウンロード不要、即座に再生。',
+      inputPlaceholder: 'M3U8 URL を貼り付けて再生開始',
+      inputHelper: 'HLS ライブストリームとビデオオンデマンドをサポート',
+      playButton: '再生'
+    },
+    features: {
+      free: {
+        title: '無料で使用',
+        description: '完全無料、登録不要'
+      },
+      instant: {
+        title: '即座に再生',
+        description: 'ダウンロード不要、ブラウザで直接再生'
+      },
+      compatible: {
+        title: '幅広い互換性',
+        description: '様々な M3U8/HLS ストリーミング形式をサポート'
+      }
+    },
+    tools: {
+      title: 'プロフェッショナルツール',
+      subtitle: '高速ダウンロードと変換のための強力な M3U8/HLS ツール',
+      downloader: {
+        badge: '人気',
+        title: 'M3U8 ダウンローダー',
+        description: 'マルチスレッドダウンロード、レジュームと再試行をサポート。プライバシーのためのローカルマージ。',
+        action: '今すぐ開始'
+      },
+      converter: {
+        badge: '推奨',
+        title: 'M3U8 から MP4 へ',
+        description: 'FFmpeg.wasm を搭載。ブラウザで MP4/WEBM/MKV に変換。',
+        action: '今すぐ変換'
+      }
+    },
+    whatIs: {
+      title: 'M3U8 とは',
+      description: 'M3U8 は HTTP ベースのストリーミングプロトコルで、ライブストリーミングとビデオオンデマンド配信に広く使用されています。',
+      features: {
+        hls: {
+          title: 'HLS プロトコルサポート',
+          description: 'HTTP ライブストリーミングプロトコルを完全サポート、様々なストリーミングソースと互換性があります。'
+        },
+        crossPlatform: {
+          title: 'クロスプラットフォーム対応',
+          description: 'プラグインやソフトウェアをインストールすることなく、すべての最新ブラウザで動作します。'
+        },
+        performance: {
+          title: '高性能な再生',
+          description: 'アダプティブビットレートストリーミングとインテリジェントなバッファリングで、スムーズな再生体験を提供します。'
+        }
+      }
+    },
+    whyChoose: {
+      sectionTitle: '利点',
+      title: 'M3U8 プレーヤーを選ぶ理由',
+      subtitle: 'プロフェッショナルで無料、使いやすいオンライン M3U8 再生ソリューション。',
+      benefits: {
+        zeroCost: {
+          title: 'ゼロコスト',
+          description: '完全無料、登録不要。隠れた料金や使用制限はありません。'
+        },
+        powerful: {
+          title: '強力な機能',
+          description: '再生、ダウンロード、変換などのプロフェッショナルグレードの機能を含みます。'
+        },
+        secure: {
+          title: '安全で信頼性が高い',
+          description: 'ユーザーデータの保存なし。すべての再生はローカルで行われ、プライバシーを保護します。'
+        }
+      }
+    },
+    howToUse: {
+      title: 'M3U8 プレーヤーの使い方',
+      subtitle: 'M3U8 ビデオストリームの再生を開始する簡単な手順:',
+      steps: {
+        getLink: {
+          title: 'M3U8 リンクを取得',
+          description: 'ビデオウェブサイトまたはストリーミングソースから M3U8 形式のリンクを取得します。'
+        },
+        pasteLink: {
+          title: 'リンクを貼り付け',
+          description: 'M3U8 リンクをプレーヤーの入力フィールドに貼り付けます。'
+        },
+        startPlaying: {
+          title: '再生開始',
+          description: '再生ボタンをクリックして、ビデオまたはライブコンテンツの視聴を開始します。'
+        },
+        advancedSettings: {
+          title: '詳細設定',
+          description: '再生速度の調整、品質の切り替え、字幕の有効化などができます。'
+        }
+      }
+    },
+    coreFeatures: {
+      title: 'M3U8 プレーヤーのコア機能',
+      subtitle: 'プロフェッショナルなプレーヤーに期待されるすべての基本機能。',
+      list: {
+        m3u8Support: {
+          title: 'M3U8/HLS サポート',
+          description: 'M3U8 と HLS プロトコルを完全サポート、様々なストリーミングソースと互換性があります。'
+        },
+        adaptiveBitrate: {
+          title: 'アダプティブビットレート',
+          description: 'ネットワーク状況に応じてビデオ品質を自動的に切り替え、スムーズな再生を実現します。'
+        },
+        playbackControls: {
+          title: '再生コントロール',
+          description: '再生/一時停止、進行状況コントロール、音量、フルスクリーンを含む完全なコントロール機能。'
+        },
+        subtitleSupport: {
+          title: '字幕サポート',
+          description: 'カスタマイズ可能なスタイルと位置を持つ WebVTT 字幕形式をサポート。'
+        },
+        playlists: {
+          title: 'プレイリスト',
+          description: '複数のビデオを連続再生するためのプレイリストを作成および管理します。'
+        },
+        keyboardShortcuts: {
+          title: 'キーボードショートカット',
+          description: 'ユーザーエクスペリエンスを向上させるキーボードショートカットをサポート。'
+        }
+      }
+    },
+    statistics: {
+      sectionTitle: '統計',
+      title: 'ユーザーが M3U8 プレーヤーを気に入っている理由',
+      subtitle: 'シンプルで無料、そして強力だからです。',
+      dailyActive: {
+        label: '毎日のアクティブ',
+        value: '10K+',
+        suffix: 'ユーザー'
+      },
+      support: {
+        label: 'サポート',
+        value: '50+',
+        suffix: 'ビデオ形式'
+      },
+      loadTime: {
+        label: '読み込み時間',
+        value: '<2',
+        suffix: '秒'
+      }
+    },
+    reviews: {
+      sectionTitle: 'ユーザーレビュー',
+      title: 'M3U8 プレーヤーについてのユーザーの声',
+      subtitle: '世界中のユーザーからの実際のレビューと体験。',
+      list: {
+        user1: {
+          name: 'Michael Chen',
+          role: 'ビデオコンテンツクリエーター',
+          content: 'M3U8 プレーヤーは私が今まで使った中で最高のオンラインプレーヤーです。クリーンなインターフェース、強力な機能、ライブストリーミングテストのニーズを完璧に満たしています。'
+        },
+        user2: {
+          name: 'Sarah Johnson',
+          role: 'フロントエンド開発者',
+          content: '開発者として、様々な M3U8 ストリームをテストする必要があります。このプレーヤーは大幅に時間を節約してくれます - もう異なるソフトウェアをインストールする必要はありません。'
+        },
+        user3: {
+          name: 'David Rodriguez',
+          role: 'ネットワークエンジニア',
+          content: 'HLS ストリーミングのデバッグに不可欠なツール。複数の形式をサポートし、明確なエラーメッセージで、問題を迅速に特定できます。'
+        },
+        user4: {
+          name: 'Emma Wilson',
+          role: '教育専門家',
+          content: 'オンライン教育に最適なツール。学生はソフトウェアをダウンロードすることなく、ブラウザで直接コースビデオを視聴できます。'
+        },
+        user5: {
+          name: 'Alex Thompson',
+          role: 'プロダクトマネージャー',
+          content: 'クリーンでエレガントなインターフェースデザインと優れたユーザーエクスペリエンス。チーム全体がこのツールを使用してビデオストリームをプレビューおよびテストしています。'
+        },
+        user6: {
+          name: 'James Kim',
+          role: 'ライブストリーム運営',
+          content: '複数のライブストリームを監視するための理想的な選択。安定した再生と簡単な切り替え - 日常業務に不可欠なツールです。'
+        }
+      }
+    },
+    faq: {
+      badge: 'よくある質問',
+      title: 'よくある質問',
+      subtitle: '答えが見つかりませんか?ヘルプセンターをチェックするか、サポートチームにお問い合わせください。',
+      questions: {
+        whatIsM3U8: {
+          question: 'M3U8 形式とは何ですか?',
+          answer: 'M3U8 は HTTP ベースのストリーミングプロトコルで、HLS(HTTP ライブストリーミング)のプレイリストファイル形式です。ビデオのライブストリーミングとオンデマンドサービスに広く使用され、アダプティブビットレートストリーミングをサポートしています。'
+        },
+        supportedFormats: {
+          question: 'プレーヤーはどの形式をサポートしていますか?',
+          answer: 'M3U8/HLS 形式の他に、プレーヤーは MP4、WebM、OGG などの一般的なビデオ形式もサポートしています。M3U8 形式については、マスタープレイリストやメディアプレイリストを含む様々なバリアントをサポートしています。'
+        },
+        whyNotPlay: {
+          question: 'ビデオが再生されないのはなぜですか?',
+          answer: '一般的な理由には以下が含まれます:1) 無効または期限切れの URL;2) CORS 制限;3) サポートされていないビデオ形式;4) ネットワーク接続の問題。ブラウザコンソールでエラーメッセージを確認するか、他の M3U8 リンクでテストしてみてください。'
+        },
+        needSoftware: {
+          question: 'ソフトウェアをインストールする必要がありますか?',
+          answer: 'いいえ!M3U8 プレーヤーは完全にブラウザで動作し、ダウンロードやインストールは不要です。最新のブラウザ(Chrome、Firefox、Safari、Edge など)があれば十分です。'
+        },
+        isFree: {
+          question: 'プレーヤーは無料で使用できますか?',
+          answer: 'はい、M3U8 プレーヤーは完全に無料で使用でき、隠れた料金、使用制限、機能制限はありません。非侵入型の広告でサービスを維持しています。'
+        },
+        howToEmbed: {
+          question: '自分のウェブサイトにプレーヤーを埋め込むにはどうすればよいですか?',
+          answer: 'M3U8 プレーヤーを簡単に独自のウェブサイトに統合できる埋め込みコードと API を提供しています。詳細な統合ガイドとカスタマイズオプションについては、開発者ドキュメントをご確認ください。'
+        }
+      }
+    },
+    cta: {
+      title: '今すぐ M3U8 ビデオを再生',
+      subtitle: '無料、高速、プロフェッショナルなオンライン再生体験。',
+      button: '再生開始'
+    },
+    footer: {
+      description: 'ライブストリーミングとオンデマンドコンテンツをサポートするプロフェッショナルなオンライン M3U8/HLS プレーヤー。無料で使用でき、登録は不要です。',
+      about: '概要',
+      resources: 'リソース',
+      recommendedTools: '推奨ツール',
+      copyright: '全著作権所有',
+      privacyPolicy: 'プライバシーポリシー',
+      termsOfService: '利用規約'
+    }
+  }
+};
+
+resources.de = {
+  translation: {
+    nav: {
+      player: 'Player',
+      downloader: 'Downloader',
+      converter: 'Konverter',
+      playlistManager: 'Playlist-Manager',
+      faq: 'FAQ',
+      blog: 'Blog'
+    },
+    hero: {
+      badge: 'Neue Funktion',
+      badgeText: 'Untertitel- und Playlist-Unterstützung',
+      title: 'Professioneller Online',
+      titleHighlight: 'M3U8/HLS',
+      titleSuffix: 'Player',
+      subtitle: 'Kostenloser Online-M3U8-Stream-Player. Unterstützt Live- und VOD-Inhalte.',
+      subtitleSecond: 'Kein Download erforderlich, sofortige Wiedergabe.',
+      inputPlaceholder: 'M3U8-URL einfügen, um die Wiedergabe zu starten',
+      inputHelper: 'Unterstützt HLS-Live-Streams und Video-on-Demand',
+      playButton: 'Abspielen'
+    },
+    features: {
+      free: {
+        title: 'Kostenlos zu verwenden',
+        description: 'Völlig kostenlos, keine Registrierung erforderlich'
+      },
+      instant: {
+        title: 'Sofortige Wiedergabe',
+        description: 'Kein Download erforderlich, direkt im Browser abspielen'
+      },
+      compatible: {
+        title: 'Breite Kompatibilität',
+        description: 'Unterstützt verschiedene M3U8/HLS-Streaming-Formate'
+      }
+    },
+    tools: {
+      title: 'Professionelle Tools',
+      subtitle: 'Leistungsstarke M3U8/HLS-Tools für schnelles Herunterladen und Konvertieren',
+      downloader: {
+        badge: 'Beliebt',
+        title: 'M3U8-Downloader',
+        description: 'Multi-threaded-Downloads mit Wiederaufnahme und Wiederholungen. Lokale Zusammenführung für Datenschutz.',
+        action: 'Jetzt starten'
+      },
+      converter: {
+        badge: 'Empfohlen',
+        title: 'M3U8 zu MP4',
+        description: 'Angetrieben von FFmpeg.wasm. Konvertieren Sie zu MP4/WEBM/MKV im Browser.',
+        action: 'Jetzt konvertieren'
+      }
+    },
+    whatIs: {
+      title: 'Was ist M3U8',
+      description: 'M3U8 ist ein HTTP-basiertes Streaming-Protokoll, das häufig für Live-Streaming und Video-on-Demand-Übertragung verwendet wird.',
+      features: {
+        hls: {
+          title: 'HLS-Protokollunterstützung',
+          description: 'Volle Unterstützung für HTTP-Live-Streaming-Protokoll, kompatibel mit verschiedenen Streaming-Quellen.'
+        },
+        crossPlatform: {
+          title: 'Plattformübergreifend kompatibel',
+          description: 'Funktioniert auf allen modernen Browsern ohne Installation von Plugins oder Software.'
+        },
+        performance: {
+          title: 'Hochleistungswiedergabe',
+          description: 'Adaptive Bitrate-Streaming mit intelligentem Puffern für reibungsloses Wiedergabeerlebnis.'
+        }
+      }
+    },
+    whyChoose: {
+      sectionTitle: 'Vorteile',
+      title: 'Warum M3U8 Player wählen',
+      subtitle: 'Professionelle, kostenlose und benutzerfreundliche Online-M3U8-Wiedergabelösung.',
+      benefits: {
+        zeroCost: {
+          title: 'Null Kosten',
+          description: 'Völlig kostenlos ohne Registrierung. Keine versteckten Gebühren oder Nutzungsbeschränkungen.'
+        },
+        powerful: {
+          title: 'Leistungsstarke Funktionen',
+          description: 'Professionelle Funktionen einschließlich Wiedergabe, Download und Konvertierung.'
+        },
+        secure: {
+          title: 'Sicher & Zuverlässig',
+          description: 'Keine Benutzerdatenspeicherung. Alle Wiedergaben erfolgen lokal und schützen Ihre Privatsphäre.'
+        }
+      }
+    },
+    howToUse: {
+      title: 'So verwenden Sie den M3U8 Player',
+      subtitle: 'Einfache Schritte zum Starten der Wiedergabe Ihrer M3U8-Videostreams:',
+      steps: {
+        getLink: {
+          title: 'M3U8-Link erhalten',
+          description: 'Erhalten Sie einen M3U8-Format-Link von Video-Websites oder Streaming-Quellen.'
+        },
+        pasteLink: {
+          title: 'Link einfügen',
+          description: 'Fügen Sie den M3U8-Link in das Eingabefeld des Players ein.'
+        },
+        startPlaying: {
+          title: 'Wiedergabe starten',
+          description: 'Klicken Sie auf die Wiedergabetaste, um mit dem Ansehen von Videos oder Live-Inhalten zu beginnen.'
+        },
+        advancedSettings: {
+          title: 'Erweiterte Einstellungen',
+          description: 'Passen Sie die Wiedergabegeschwindigkeit an, wechseln Sie die Qualität, aktivieren Sie Untertitel und mehr.'
+        }
+      }
+    },
+    coreFeatures: {
+      title: 'M3U8 Player Kernfunktionen',
+      subtitle: 'Alle wesentlichen Funktionen, die Sie von einem professionellen Player erwarten.',
+      list: {
+        m3u8Support: {
+          title: 'M3U8/HLS-Unterstützung',
+          description: 'Volle Unterstützung für M3U8- und HLS-Protokolle, kompatibel mit verschiedenen Streaming-Quellen.'
+        },
+        adaptiveBitrate: {
+          title: 'Adaptive Bitrate',
+          description: 'Wechselt automatisch die Videoqualität basierend auf Netzwerkbedingungen für reibungslose Wiedergabe.'
+        },
+        playbackControls: {
+          title: 'Wiedergabesteuerung',
+          description: 'Vollständige Steuerungsfunktionen einschließlich Wiedergabe/Pause, Fortschrittskontrolle, Lautstärke, Vollbild.'
+        },
+        subtitleSupport: {
+          title: 'Untertitelunterstützung',
+          description: 'Unterstützt WebVTT-Untertitelformat mit anpassbaren Stilen und Positionierung.'
+        },
+        playlists: {
+          title: 'Playlists',
+          description: 'Erstellen und verwalten Sie Playlists für die kontinuierliche Wiedergabe mehrerer Videos.'
+        },
+        keyboardShortcuts: {
+          title: 'Tastaturkürzel',
+          description: 'Tastaturkürzel-Unterstützung für verbesserte Benutzererfahrung.'
+        }
+      }
+    },
+    statistics: {
+      sectionTitle: 'Statistiken',
+      title: 'Benutzer lieben M3U8 Player',
+      subtitle: 'Weil es einfach, kostenlos und leistungsstark ist.',
+      dailyActive: {
+        label: 'Täglich aktiv',
+        value: '10K+',
+        suffix: 'Benutzer'
+      },
+      support: {
+        label: 'Unterstützung',
+        value: '50+',
+        suffix: 'Videoformate'
+      },
+      loadTime: {
+        label: 'Ladezeit',
+        value: '<2',
+        suffix: 'Sekunden'
+      }
+    },
+    reviews: {
+      sectionTitle: 'Benutzerbewertungen',
+      title: 'Was Benutzer über M3U8 Player sagen',
+      subtitle: 'Echte Bewertungen und Erfahrungen von Benutzern auf der ganzen Welt.',
+      list: {
+        user1: {
+          name: 'Michael Chen',
+          role: 'Video Content Creator',
+          content: 'M3U8 Player ist der beste Online-Player, den ich je benutzt habe. Sauberes Interface, leistungsstarke Funktionen, erfüllt perfekt meine Live-Streaming-Testanforderungen.'
+        },
+        user2: {
+          name: 'Sarah Johnson',
+          role: 'Frontend Developer',
+          content: 'Als Entwickler muss ich häufig verschiedene M3U8-Streams testen. Dieser Player spart mir eine Menge Zeit - keine Installation verschiedener Software mehr.'
+        },
+        user3: {
+          name: 'David Rodriguez',
+          role: 'Network Engineer',
+          content: 'Unverzichtbares Tool zum Debuggen von HLS-Streaming. Unterstützt mehrere Formate mit klaren Fehlermeldungen, hilft mir, Probleme schnell zu identifizieren.'
+        },
+        user4: {
+          name: 'Emma Wilson',
+          role: 'Education Professional',
+          content: 'Perfektes Tool für Online-Unterricht. Schüler können Kursvideos direkt im Browser ansehen, ohne Software herunterzuladen.'
+        },
+        user5: {
+          name: 'Alex Thompson',
+          role: 'Product Manager',
+          content: 'Sauberes und elegantes Interface-Design mit hervorragender Benutzererfahrung. Unser gesamtes Team verwendet dieses Tool zum Vorschauen und Testen von Videostreams.'
+        },
+        user6: {
+          name: 'James Kim',
+          role: 'Live Stream Operations',
+          content: 'Ideale Wahl zum Überwachen mehrerer Live-Streams. Stabile Wiedergabe mit einfachem Wechseln - ein unverzichtbares Tool für unseren täglichen Betrieb.'
+        }
+      }
+    },
+    faq: {
+      badge: 'FAQ',
+      title: 'Häufig gestellte Fragen',
+      subtitle: 'Können Sie die Antwort nicht finden? Schauen Sie in unserem Hilfecenter nach oder kontaktieren Sie das Support-Team.',
+      questions: {
+        whatIsM3U8: {
+          question: 'Was ist das M3U8-Format?',
+          answer: 'M3U8 ist ein HTTP-basiertes Streaming-Protokoll und Playlist-Dateiformat für HLS (HTTP Live Streaming). Es wird häufig für Video-Live-Streaming und On-Demand-Dienste verwendet und unterstützt adaptive Bitrate-Streaming.'
+        },
+        supportedFormats: {
+          question: 'Welche Formate unterstützt der Player?',
+          answer: 'Neben dem M3U8/HLS-Format unterstützt der Player auch gängige Videoformate wie MP4, WebM, OGG. Für das M3U8-Format unterstützt er verschiedene Varianten einschließlich Master-Playlists und Media-Playlists.'
+        },
+        whyNotPlay: {
+          question: 'Warum wird mein Video nicht abgespielt?',
+          answer: 'Häufige Gründe sind: 1) Ungültige oder abgelaufene URL; 2) CORS-Einschränkungen; 3) Nicht unterstütztes Videoformat; 4) Netzwerkverbindungsprobleme. Überprüfen Sie die Browser-Konsole auf Fehlermeldungen oder versuchen Sie es mit anderen M3U8-Links zu testen.'
+        },
+        needSoftware: {
+          question: 'Muss ich Software installieren?',
+          answer: 'Nein! M3U8 Player läuft vollständig im Browser ohne Downloads oder Installationen. Sie benötigen nur einen modernen Browser (Chrome, Firefox, Safari, Edge usw.).'
+        },
+        isFree: {
+          question: 'Ist der Player kostenlos zu verwenden?',
+          answer: 'Ja, M3U8 Player ist völlig kostenlos zu verwenden ohne versteckte Gebühren, Nutzungsbeschränkungen oder Funktionsbeschränkungen. Wir unterhalten den Service durch nicht-intrusive Werbung.'
+        },
+        howToEmbed: {
+          question: 'Wie kann ich den Player auf meiner Website einbetten?',
+          answer: 'Wir bieten Einbettungscode und APIs, mit denen Sie den M3U8-Player einfach in Ihre eigene Website integrieren können. Überprüfen Sie unsere Entwicklerdokumentation für detaillierte Integrationsleitfäden und Anpassungsoptionen.'
+        }
+      }
+    },
+    cta: {
+      title: 'Starten Sie jetzt die Wiedergabe Ihrer M3U8-Videos',
+      subtitle: 'Kostenloses, schnelles und professionelles Online-Wiedergabeerlebnis.',
+      button: 'Wiedergabe starten'
+    },
+    footer: {
+      description: 'Professioneller Online-M3U8/HLS-Player, der Live-Streaming und On-Demand-Inhalte unterstützt. Kostenlos zu verwenden, keine Registrierung erforderlich.',
+      about: 'Über',
+      resources: 'Ressourcen',
+      recommendedTools: 'Empfohlene Tools',
+      copyright: 'Alle Rechte vorbehalten',
+      privacyPolicy: 'Datenschutzrichtlinie',
+      termsOfService: 'Nutzungsbedingungen'
+    }
+  }
+};
+
+i18n
+  .use(initReactI18next)
+  .init({
+    resources,
+    lng: 'zh-CN', // default language
+    fallbackLng: 'en',
+    interpolation: {
+      escapeValue: false
+    }
+  });
+
+export default i18n;

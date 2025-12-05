@@ -1,0 +1,32 @@
+<!-- public/sitemap.xml -->
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://m3u8play.cn</loc>
+    <lastmod>2025-12-03</lastmod>
+  </url>
+  <url>
+    <loc>https://m3u8play.cn/downloader</loc>
+    <lastmod>2025-12-03</lastmod>
+  </url>
+    <url>
+    <loc>https://m3u8play.cn/converter</loc>
+    <lastmod>2025-12-03</lastmod>
+  </url>
+    <url>
+    <loc>https://m3u8play.cn/playlist-manager</loc>
+    <lastmod>2025-12-03</lastmod>
+  </url>
+    <url>
+    <loc>https://m3u8play.cn/blog</loc>
+    <lastmod>2025-12-03</lastmod>
+  </url>
+    <url>
+    <loc>https://m3u8play.cn/privacy-policy</loc>
+    <lastmod>2025-12-03</lastmod>
+  </url>
+      <url>
+    <loc>https://m3u8play.cn/terms-of-service</loc>
+    <lastmod>2025-12-03</lastmod>
+  </url>
+</urlset>

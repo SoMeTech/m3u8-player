@@ -1,0 +1,8 @@
+        browseByCategory: '按分类浏览',
+        articlesCount: '篇文章',
+        newsletter: {
+          title: '保持更新',
+          description: '订阅获取关于 M3U8、HLS 流媒体和视频工具的最新文章。',
+          placeholder: '输入您的邮箱...',
+          button: '订阅'
+        }
